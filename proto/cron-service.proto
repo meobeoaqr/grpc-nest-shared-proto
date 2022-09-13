@@ -5,6 +5,7 @@ package cronService;
 service CronService {
   rpc CreateCron (CreateCronRequest) returns (CreateCronResponse) {}
   rpc FindCronByName (FindCronByNameRequest) returns (FindCronByNameResponse) {}
+  rpc GetJobsByStatus (GetJobsByStatusRequest) returns (GetJobsByStatusResponse) {}
 }
 
 message CreateCronRequest {
