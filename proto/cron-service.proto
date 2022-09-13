@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package cronService;
+
+service CronService {
+  rpc createCron (CreateCronRequest) returns (CreateCronResponse) {}
+}
+
+message CreateCronRequest {
+  string cronExpression = 1;
+  string timezone = 2;
+  string tenantId = 3;
+}
+
+message CreateCronResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  int32 id = 3;
+}
