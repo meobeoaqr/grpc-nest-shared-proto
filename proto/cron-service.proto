@@ -29,6 +29,7 @@ message FindCronByNameResponse {
   int32 status = 1;
   repeated string error = 2;
   string id = 3;
+  string jobStatus = 4;
 }
 
 message GetJobsByStatusRequest {
