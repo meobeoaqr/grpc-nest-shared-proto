@@ -3,7 +3,8 @@ syntax = "proto3";
 package cronService;
 
 service CronService {
-  rpc createCron (CreateCronRequest) returns (CreateCronResponse) {}
+  rpc CreateCron (CreateCronRequest) returns (CreateCronResponse) {}
+  rpc FindCronByName (FindCronByNameRequest) returns (FindCronByNameResponse) {}
 }
 
 message CreateCronRequest {
@@ -15,5 +16,33 @@ message CreateCronRequest {
 message CreateCronResponse {
   int32 status = 1;
   repeated string error = 2;
-  int32 id = 3;
+  string id = 3;
 }
+
+
+message FindCronByNameRequest {
+  string cronName = 1;
+}
+
+message FindCronByNameResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  string id = 3;
+}
+
+message GetJobsByStatusRequest {
+  string status = 1;
+  string tenantId = 2;
+}
+
+message JobObject {
+  string id = 1;
+  string name = 2;
+}
+
+message GetJobsByStatusResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  repeated JobObject jobs = 3;
+}
+
