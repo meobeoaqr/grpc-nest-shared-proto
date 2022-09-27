@@ -6,6 +6,8 @@ service CronService {
   rpc CreateCron (CreateCronRequest) returns (CreateCronResponse) {}
   rpc FindCronByName (FindCronByNameRequest) returns (FindCronByNameResponse) {}
   rpc GetJobsByStatus (GetJobsByStatusRequest) returns (GetJobsByStatusResponse) {}
+  rpc CreateQueueForTenant (CreateQueueForTenantRequest) returns (CreateQueueForTenantResponse) {}
+  rpc GetQueuesForTenants (GetQueuesForTenantsRequest) returns (GetQueuesForTenantsResponse) {}
 }
 
 message CreateCronRequest {
@@ -49,8 +51,15 @@ message GetJobsByStatusResponse {
   repeated JobObject jobs = 3;
 }
 
-message GetQueuesForTenantsRequest {
+message TenantQueueObject {
+  string name = 1;
+  string status = 2;
+}
 
+message GetQueuesForTenantsRequest {}
+
+message GetQueuesForTenantsResponse {
+  repeated TenantQueueObject queues = 1;
 }
 
 message CreateQueueForTenantRequest {
