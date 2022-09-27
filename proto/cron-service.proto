@@ -12,6 +12,7 @@ message CreateCronRequest {
   string cronExpression = 1;
   string timezone = 2;
   string tenantId = 3;
+  string jobName = 4;
 }
 
 message CreateCronResponse {
@@ -47,4 +48,17 @@ message GetJobsByStatusResponse {
   repeated string error = 2;
   repeated JobObject jobs = 3;
 }
+
+message GetQueuesForTenantsRequest {
+
+}
+
+message CreateQueueForTenantRequest {
+  string tenantName = 1;
+}
+
+message CreateQueueForTenantResponse {
+  string status = 1;
+}
+
 
